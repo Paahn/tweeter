@@ -1,0 +1,16 @@
+.site-header {
+  height: 400px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#site-header h2 {
+  display: flex;
+  justify-content: center;
+}
+
+header#site-header.site-header, .container {
+  background-color: #008c41;
+  background-image: url("https://www.transparenttextures.com/patterns/purty-wood.png");
+}
