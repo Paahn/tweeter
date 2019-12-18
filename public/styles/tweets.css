@@ -1,0 +1,19 @@
+.all-tweets {
+  display: block;
+  border: solid purple;
+  background-color: seashell;
+  width: webkit-fill-available;
+  border-bottom: solid black;
+}
+
+.make-flex {
+  display: flex;
+  justify-content: space-between;
+}
+.resize-image {
+  width: 30%;
+}
+.footer {
+  margin-bottom: 10px;
+}
+
