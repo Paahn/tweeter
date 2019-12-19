@@ -17,3 +17,11 @@
   margin-bottom: 10px;
 }
 
+.hover-class {
+  display: none;
+}
+
+#all-tweets article:hover .hover-class {
+  display:flex;
+}
+
