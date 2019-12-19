@@ -29,6 +29,16 @@ const renderTweets = function(tweets) {
 }
 
 $(document).ready(() => {
+  $('.form-class').submit((event) =>  {
+    event.preventDefault();
+    let text = $('#new-tweet-textarea').val();
+    console.log(text);
+  });
+
+
+
+
+
   const data = [
     {
       "user": {
