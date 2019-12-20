@@ -21,6 +21,7 @@
   font-family: 'Bungee', sans-serif;
 }
 
-.over-limit {
+.over-limit, .danger-colour {
   color:#ff1a1a;
+  font-family: 'Bungee', sans-serif;
 }

@@ -58,12 +58,12 @@ $(document).ready(() => {
 // performing validation for input
     if (!text) {
       $(".new-tweet .display-error").html("No tweet content!");
-      $(".new-tweet .display-error").css("visibility", "visible");
+      $(".new-tweet .display-error").css("visibility", "visible").addClass("danger-colour");
       return; // block form submission when no content
     }
     if (tweetLength > 140) {
       $(".new-tweet .display-error").html("Tweet over the character limit!");
-      $(".new-tweet .display-error").css("visibility", "visible");
+      $(".new-tweet .display-error").css("visibility", "visible").addClass("danger-colour");
       return; // block form submission when content over limit
     }
 
