@@ -4,7 +4,8 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-
+// creating tweet template. 
+// note that since I am receiving the input inside the text(), I am not vulnerable to script inputs ^^
 const createTweetElement = function(tweet) {
   let tweetArticle = $('<article>');
   let tweetHeader = $('<header>');
@@ -19,14 +20,14 @@ const createTweetElement = function(tweet) {
   return tweetArticle;
 };
 
-
+// shows tweets on app page
 const renderTweets = function(tweet) {
   tweet.forEach((tweet) => {
     const tweetsContainer = $('.all-tweets');
     tweetsContainer.prepend(createTweetElement(tweet));
   });
 };
-
+// gets the tweets from the /tweets to pass them to render
 const loadTweets = function() {
   $.ajax({
     url: '/tweets',
@@ -44,6 +45,7 @@ $(document).ready(() => {
 
     let text = $('#new-tweet-textarea').val();
     const tweetLength = text.length;
+// performing validation for input
     if (!text) {
       alert("No tweet content!");
       return; // block form submission when no content
@@ -59,10 +61,7 @@ $(document).ready(() => {
       data: $('#new-tweet-textarea').serialize()
     })
     .then((res) => {
-      console.log(res);
       loadTweets();
-      // console.log(res.text);
-      // renderTweets(res);
     });
 
   });
