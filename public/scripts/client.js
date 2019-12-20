@@ -38,6 +38,16 @@ const loadTweets = function() {
   });
 };
 
+// Toggle the compose tweet textarea on and off
+const toggleComposeTweet = function() {
+  $(".compose").click( (event) => {
+    event.stopPropagation();
+    $(".new-tweet").toggle(100, () => {
+      $("#new-tweet-textarea").focus();
+    });
+  });
+};
+
 
 $(document).ready(() => {
   $('.form-class').submit((event) => {

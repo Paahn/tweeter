@@ -1,5 +1,5 @@
 .navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
   height: 120px;
   width: 100%;
@@ -21,4 +21,8 @@
 .navbar .compose {
   font-family: 'Bungee', sans-serif;
   margin: 1.5em;
+}
+
+.navbar .compose:hover {
+  cursor: pointer;
 }
