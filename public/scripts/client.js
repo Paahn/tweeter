@@ -52,15 +52,18 @@ const toggleComposeTweet = function() {
 $(document).ready(() => {
   $('.form-class').submit((event) => {
     event.preventDefault();
-
+    $(".new-tweet .display-error").css("visibility", "hidden");
     let text = $('#new-tweet-textarea').val();
     const tweetLength = text.length;
 // performing validation for input
     if (!text) {
-      alert("No tweet content!");
+      $(".new-tweet .display-error").html("No tweet content!");
+      $(".new-tweet .display-error").css("visibility", "visible");
       return; // block form submission when no content
-    } else if (tweetLength > 140) {
-      alert("Tweet over the character limit!");
+    }
+    if (tweetLength > 140) {
+      $(".new-tweet .display-error").html("Tweet over the character limit!");
+      $(".new-tweet .display-error").css("visibility", "visible");
       return; // block form submission when content over limit
     }
 
