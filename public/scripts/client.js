@@ -25,7 +25,6 @@ const renderTweets = function(tweet) {
     const tweetsContainer = $('.all-tweets');
     tweetsContainer.prepend(createTweetElement(tweet));
   });
-  
 };
 
 const loadTweets = function() {
@@ -44,18 +43,27 @@ $(document).ready(() => {
     event.preventDefault();
 
     let text = $('#new-tweet-textarea').val();
-    // console.log(text);
-    // let variableA = $('form').serialize();
-    // console.log(variableA);
+    const tweetLength = text.length;
+    if (!text) {
+      alert("No tweet content!");
+      return; // block form submission when no content
+    } else if (tweetLength > 140) {
+      alert("Tweet over the character limit!");
+      return; // block form submission when content over limit
+    }
+
 
     $.ajax({
       url: '/tweets/',
       method: 'POST',
       data: $('#new-tweet-textarea').serialize()
     })
-      .then(() => {
-        loadTweets();
-      });
+    .then((res) => {
+      console.log(res);
+      loadTweets();
+      // console.log(res.text);
+      // renderTweets(res);
+    });
 
   });
 
@@ -85,6 +93,5 @@ $(document).ready(() => {
     }
   ];
   loadTweets();
-  // renderTweets(data);
 });
 
