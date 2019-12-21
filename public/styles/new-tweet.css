@@ -25,7 +25,11 @@
   color:#ff1a1a;
   font-family: 'Bungee', sans-serif;
 }
-.container {
+section.new-tweet {
   background-color: whitesmoke;
-  margin-bottom: 30px;
+  margin: 30px 0;
+}
+
+textarea {
+  border: none;
 }
