@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
   <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/font-awesome/css/font-awesome.min.css">
 
 
 
@@ -32,7 +33,9 @@
   <!-- Top nav bar (fixed) -->
   <nav id="navbar" class="navbar">
     <span class="logo">tweeter</span>
-    <span class="compose"><a href="#">Write a new tweet</a></span>
+    <span class="compose">Write a new tweet
+      <i class="fa fa-angle-down"></i>
+    </span>
   </nav>
   <!-- End of navbar -->
   <div id="wrapper">
@@ -47,9 +50,10 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
     <section class="new-tweet">
-      
+
       <form class="form-class" action="/tweets/" method="POST">
-        <textarea id="new-tweet-textarea" class="underline-hummer" name="text" placeholder="What are you humming about?"></textarea>
+        <textarea id="new-tweet-textarea" class="underline-hummer" name="text"
+          placeholder="What are you humming about?"></textarea>
         <div class="submit-group">
           <input class="submit-tweet" type="submit" value="Tweet">
           <span class="display-error"></span>

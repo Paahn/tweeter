@@ -26,3 +26,10 @@
 .navbar .compose:hover {
   cursor: pointer;
 }
+
+.fa .fa-angle-double-down {
+  color: black;
+}
+.fa .fa-angle-double-down:hover {
+  color: white
+}
