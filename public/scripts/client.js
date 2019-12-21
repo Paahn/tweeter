@@ -18,10 +18,11 @@ const createTweetElement = function(tweet) {
   tweetFooter.append($('<div>').addClass('time'));
   tweetFooter.append($('<span>')).text(`${timeSinceTweeted(new Date(tweet.created_at))}`);
   tweetArticle.append($(tweetFooter));
-
+  // above I am appending the header, body and footer to tweetArticle and returnign it below
   return tweetArticle;
 };
 
+// calculating time since tweets were created when the tweet button is pressed
 const timeSinceTweeted = function(time) {
   var date = new Date(time),
 		diff = (((new Date()).getTime() - date.getTime()) / 1000),
