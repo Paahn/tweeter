@@ -8,7 +8,7 @@
 // note that since I am receiving the input inside the text(), I am not vulnerable to script inputs ^^
 const createTweetElement = function(tweet) {
   let tweetArticle = $('<article>');
-  let tweetHeader = $('<header>');
+  let tweetHeader = $('<header>').addClass('make-flex');
   let tweetFooter = $('<footer>');
   tweetHeader.append($('<img>').attr("src", tweet.user.avatars));
   tweetHeader.append($('<span>').text(tweet.user.name));
