@@ -16,34 +16,29 @@ const createTweetElement = function(tweet) {
   tweetArticle.append($(tweetHeader));
   tweetArticle.append($('<p>').addClass('stay-inside-text').text(tweet.content.text));
   tweetFooter.append($('<div>').addClass('time'));
-  tweetFooter.append($('<span>')).text(`${timeSinceTweeted(new Date(), new Date(tweet.created_at))}`);
+  tweetFooter.append($('<span>')).text(`${timeSinceTweeted(new Date(tweet.created_at))}`);
   tweetArticle.append($(tweetFooter));
 
   return tweetArticle;
 };
 
-const timeSinceTweeted = function(current, previous) {
-  const msPerMinute = 60 * 1000;
-  const msPerHour = msPerMinute * 60;
-  const msPerDay = msPerHour * 24;
-  const msPerMonth = msPerDay * 30;
-  const msPerYear = msPerDay * 365;
-
-  const elapsed = current - previous;
-
-  if (elapsed < msPerMinute) {
-    return Math.round(elapsed / 1000) + " seconds ago";
-  } else if (elapsed < msPerHour) {
-    return Math.round(elapsed / msPerMinute) + " minutes ago";
-  } else if (elapsed < msPerDay) {
-    return Math.round(elapsed / msPerHour) + " hours ago";
-  } else if (elapsed < msPerMonth) {
-    return "about " + Math.round(elapsed / msPerDay) + " days ago";
-  } else if (elapsed < msPerYear) {
-    return "about " + Math.round(elapsed / msPerMonth) + " months ago";
-  } else {
-    return "about " + Math.round(elapsed / msPerYear) + " years ago";
-  }
+const timeSinceTweeted = function(time) {
+  var date = new Date(time),
+		diff = (((new Date()).getTime() - date.getTime()) / 1000),
+		day_diff = Math.floor(diff / 86400);
+			
+	if ( isNaN(day_diff) || day_diff < 0 || day_diff >= 31 )
+		return;
+			
+	return day_diff == 0 && (
+			diff < 60 && "just now" ||
+			diff < 120 && "1 minute ago" ||
+			diff < 3600 && Math.floor( diff / 60 ) + " minutes ago" ||
+			diff < 7200 && "1 hour ago" ||
+			diff < 86400 && Math.floor( diff / 3600 ) + " hours ago") ||
+		day_diff == 1 && "Yesterday" ||
+		day_diff < 7 && day_diff + " days ago" ||
+		day_diff < 31 && Math.ceil( day_diff / 7 ) + " weeks ago";
 };
 
 
