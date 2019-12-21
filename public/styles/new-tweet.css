@@ -33,3 +33,8 @@ section.new-tweet {
 textarea {
   border: none;
 }
+
+.stay-inside-text {
+  white-space: normal;
+  overflow: hidden;
+}
