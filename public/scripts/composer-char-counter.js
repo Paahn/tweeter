@@ -3,15 +3,15 @@ const updateCounter = (counterPassed) => {
 }
 
 $(document).ready(function() {
-  let charCounter = 0;
-  $( '.new-tweet textarea' ).on('keypress', function() {
-    charCounter++ ;
+  let charCounter = $(this).val().length;
+  $( '.new-tweet textarea' ).on('input', function() {
+    charCounter = $(this).val().length;
     updateCounter(charCounter);
-    if (charCounter > 140){
+    if (charCounter > 140) {
       $( ' span.counter ').addClass(' over-limit ');
     } else {
       $(' span.counter ').removeClass(' over-limit ');
     }
-  })
+  });
 });
 
