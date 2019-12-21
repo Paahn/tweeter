@@ -38,3 +38,12 @@ textarea {
   white-space: normal;
   overflow: hidden;
 }
+
+.time {
+  border-bottom: purple;
+  margin-bottom: 1px;
+}
+
+article {
+  border-bottom: purple solid 3px;
+}
