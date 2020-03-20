@@ -80,6 +80,7 @@ const toggleComposeTweet = function() {
 
 
 $(document).ready(() => {
+  $('#new-tweet-textarea').val('');
   $('.form-class').submit((event) => {
     event.preventDefault();
     $(".new-tweet .display-error").css("visibility", "hidden");
