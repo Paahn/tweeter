@@ -106,7 +106,8 @@ $(document).ready(() => {
     .then((res) => {
       loadTweets();
     });
-
+    
+    $('#new-tweet-textarea').val('');
   });
   toggleComposeTweet();
   loadTweets();
