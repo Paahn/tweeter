@@ -17,8 +17,13 @@ const createTweetElement = function(tweet) {
   tweetArticle.append($('<p>').addClass('stay-inside-text').text(tweet.content.text));
   tweetFooter.append($('<div>').addClass('time'));
   tweetFooter.append($('<span>')).text(`${timeSinceTweeted(new Date(tweet.created_at))}`);
+  if (tweet.user.name === 'Descartes') {
+    tweetFooter.append($('<span>')).text(`370 years ago`);
+  } else if (tweet.user.name === 'Newton') {
+    tweetFooter.append($('<span>')).text(`293 years ago`);
+  } 
   tweetArticle.append($(tweetFooter));
-  // above I am appending the header, body and footer to tweetArticle and returnign it below
+  // above I am appending the header, body and footer to tweetArticle and returning it below
   return tweetArticle;
 };
 
@@ -80,7 +85,7 @@ $(document).ready(() => {
     $(".new-tweet .display-error").css("visibility", "hidden");
     let text = $('#new-tweet-textarea').val();
     const tweetLength = text.length;
-// performing validation for input
+    // performing validation for input
     if (!text) {
       $(".new-tweet .display-error").html("No tweet content!");
       $(".new-tweet .display-error").css("visibility", "visible").addClass("danger-colour");
