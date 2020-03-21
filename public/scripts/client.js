@@ -17,7 +17,6 @@ const createTweetElement = function(tweet) {
   tweetArticle.append($('<p>').addClass('stay-inside-text').text(tweet.content.text));
   tweetFooter.append($('<span>').addClass('time')
   .append($('<span>').text(`${timeSinceTweeted(new Date(tweet.created_at))}`)));
-  // tweetFooter.append($('<span>').text(`${timeSinceTweeted(new Date(tweet.created_at))}`));
   if (tweet.user.name === 'Descartes') {
     tweetFooter.append($('<span>')).text(`370 years ago`);
   } else if (tweet.user.name === 'Newton') {
