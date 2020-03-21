@@ -13,8 +13,10 @@
 .resize-image {
   width: 30%;
 }
-.footer {
+footer {
   margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .hover-class {
