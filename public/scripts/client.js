@@ -15,17 +15,18 @@ const createTweetElement = function(tweet) {
   tweetHeader.append($('<span>').addClass('hover-class').text(tweet.user.handle));
   tweetArticle.append($(tweetHeader));
   tweetArticle.append($('<p>').addClass('stay-inside-text').text(tweet.content.text));
-  tweetFooter.append($('<div>').addClass('time'));
-  tweetFooter.append($('<span>')).text(`${timeSinceTweeted(new Date(tweet.created_at))}`);
+  tweetFooter.append($('<span>').addClass('time')
+  .append($('<span>').text(`${timeSinceTweeted(new Date(tweet.created_at))}`)));
+  // tweetFooter.append($('<span>').text(`${timeSinceTweeted(new Date(tweet.created_at))}`));
   if (tweet.user.name === 'Descartes') {
     tweetFooter.append($('<span>')).text(`370 years ago`);
   } else if (tweet.user.name === 'Newton') {
     tweetFooter.append($('<span>')).text(`293 years ago`);
   } 
-  tweetFooter.append($('<div>').addClass('icons'));
-  tweetFooter.append($('<i>').addClass('fa fa-flag'));
-  tweetFooter.append($('<i>').addClass('fa fa-retweet'));
-  tweetFooter.append($('<i>').addClass('fa fa-heart'));
+  tweetFooter.append($('<span>').addClass('icons')
+  .append($('<i>').addClass('fa fa-flag'))
+  .append($('<i>').addClass('fa fa-retweet'))
+  .append($('<i>').addClass('fa fa-heart')));
   tweetArticle.append($(tweetFooter));
   // above I am appending the header, body and footer to tweetArticle and returning it below
   return tweetArticle;
