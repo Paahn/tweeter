@@ -22,6 +22,10 @@ const createTweetElement = function(tweet) {
   } else if (tweet.user.name === 'Newton') {
     tweetFooter.append($('<span>')).text(`293 years ago`);
   } 
+  tweetFooter.append($('<div>').addClass('icons'));
+  tweetFooter.append($('<i>').addClass('fa fa-flag'));
+  tweetFooter.append($('<i>').addClass('fa fa-retweet'));
+  tweetFooter.append($('<i>').addClass('fa fa-heart'));
   tweetArticle.append($(tweetFooter));
   // above I am appending the header, body and footer to tweetArticle and returning it below
   return tweetArticle;
